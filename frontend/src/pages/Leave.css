@@ -1,0 +1,144 @@
+
+.leaves-page {
+  min-height: 100vh;
+  padding-top: 25px;
+  padding-bottom: 40px;
+  color: #202b50;
+}
+
+.leaves-page h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.leaves-page > p {
+  color: #858da3;
+  margin-bottom: 28px;
+}
+
+.leaves-back {
+  border: 1px solid #3448c5;
+  color: #3448c5;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-weight: 600;
+}
+
+.leaves-back:hover {
+  background: #3448c5;
+  color: white;
+}
+
+.leaves-card {
+  background: white;
+  border: 1px solid #edf0f7;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(32, 43, 80, 0.05);
+}
+
+.leaves-card h4 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #202b50;
+  margin-bottom: 12px;
+}
+
+.leaves-card p {
+  color: #858da3;
+}
+
+.leaves-page .form-label {
+  font-weight: 600;
+  color: #414b65;
+}
+
+.leaves-page .form-control,
+.leaves-page .form-select {
+  padding: 11px 13px;
+  border: 1px solid #dfe3ed;
+  border-radius: 8px;
+}
+
+.leaves-page .form-control:focus,
+.leaves-page .form-select:focus {
+  border-color: #6578e8;
+  box-shadow: 0 0 0 3px rgba(101, 120, 232, 0.12);
+}
+
+.leaves-submit {
+  background: #3448c5;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.leaves-submit:hover {
+  background: #26379f;
+  color: white;
+}
+
+.leaves-table {
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.leaves-table thead th {
+  background: #f2f4fb;
+  color: #3448c5;
+  font-size: 13px;
+  padding: 14px;
+  border: none;
+}
+
+.leaves-table tbody td {
+  padding: 14px;
+  color: #4b5368;
+  font-size: 14px;
+}
+
+.leave-status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.leave-status.approved {
+  background: #e2f7ed;
+  color: #198754;
+}
+
+.leave-status.rejected {
+  background: #fde8e8;
+  color: #dc3545;
+}
+
+.leave-status.pending {
+  background: #fff2d9;
+  color: #b7791f;
+}
+
+.leave-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.leave-actions .btn {
+  border-radius: 7px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .leaves-page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .leaves-card {
+    padding: 17px;
+  }
+}
