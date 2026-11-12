@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Attendance.css";
 
+const API_URL = "https://hr-management-system-yoed.onrender.com";
+
 function Attendance() {
   const [records, setRecords] = useState([]);
   const [message, setMessage] = useState("");
@@ -22,8 +24,8 @@ function Attendance() {
     try {
       const url =
         employee.role === "admin"
-          ? "http://localhost:5000/api/attendance/all"
-          : "http://localhost:5000/api/attendance/my";
+          ? `${API_URL}/api/attendance/all`
+          : `${API_URL}/api/attendance/my`;
 
       const response = await axios.get(url, { headers });
       setRecords(response.data);
@@ -42,7 +44,7 @@ function Attendance() {
       setMessage("");
 
       const response = await axios.post(
-        "http://localhost:5000/api/attendance/checkin",
+        `${API_URL}/api/attendance/checkin`,
         {},
         { headers }
       );
@@ -60,7 +62,7 @@ function Attendance() {
       setMessage("");
 
       const response = await axios.post(
-        "http://localhost:5000/api/attendance/checkout",
+        `${API_URL}/api/attendance/checkout`,
         {},
         { headers }
       );

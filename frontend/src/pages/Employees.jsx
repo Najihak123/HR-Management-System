@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Employees.css";
 
+const API_URL = "https://hr-management-system-yoed.onrender.com";
+
 function Employees() {
   const [employees, setEmployees] = useState([]);
   const [error, setError] = useState("");
@@ -26,7 +28,7 @@ function Employees() {
   const fetchEmployees = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/employees",
+        `${API_URL}/api/employees`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -62,7 +64,7 @@ function Employees() {
         const { password, ...updatedData } = form;
 
         await axios.put(
-          `http://localhost:5000/api/employees/${editingId}`,
+          `${API_URL}/api/employees/${editingId}`,
           {
             ...updatedData,
             salary: Number(form.salary)
@@ -75,7 +77,7 @@ function Employees() {
         );
       } else {
         await axios.post(
-          "http://localhost:5000/api/employees",
+          `${API_URL}/api/employees`,
           {
             ...form,
             salary: Number(form.salary)
@@ -128,7 +130,7 @@ function Employees() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/employees/${id}`,
+        `${API_URL}/api/employees/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const API_URL = "https://hr-management-system-yoed.onrender.com";
+
 function Leaves() {
   const [leaves, setLeaves] = useState([]);
   const [form, setForm] = useState({
@@ -30,8 +32,8 @@ function Leaves() {
       setError("");
       const url =
         employee.role === "admin"
-          ? "http://localhost:5000/api/leaves/all"
-          : "http://localhost:5000/api/leaves/my";
+          ? `${API_URL}/api/leaves/all`
+          : `${API_URL}/api/leaves/my`;
 
       const response = await axios.get(url, { headers });
       setLeaves(response.data);
@@ -54,7 +56,7 @@ function Leaves() {
       setMessage("");
 
       const response = await axios.post(
-        "http://localhost:5000/api/leaves/apply",
+        `${API_URL}/api/leaves/apply`,
         {
           leaveType: form.leaveType,
           startDate: form.fromDate,
@@ -89,7 +91,7 @@ function Leaves() {
       setMessage("");
 
       const response = await axios.put(
-        `http://localhost:5000/api/leaves/${id}`,
+        `${API_URL}/api/leaves/${id}`,
         { status },
         { headers }
       );

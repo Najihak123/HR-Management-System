@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Salaries.css";
 
+const API_URL = "https://hr-management-system-yoed.onrender.com";
+
 function Salaries() {
   const [salaries, setSalaries] = useState([]);
   const [employees, setEmployees] = useState([]);
@@ -28,8 +30,8 @@ function Salaries() {
     try {
       const url =
         user.role === "admin"
-          ? "http://localhost:5000/api/salaries/all"
-          : "http://localhost:5000/api/salaries/my";
+          ? `${API_URL}/api/salaries/all`
+          : `${API_URL}/api/salaries/my`;
 
       const response = await axios.get(url, { headers });
       setSalaries(response.data);
@@ -43,7 +45,7 @@ function Salaries() {
 
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/employees",
+        `${API_URL}/api/employees`,
         { headers }
       );
       setEmployees(response.data);
@@ -65,7 +67,7 @@ function Salaries() {
       setMessage("");
 
       const response = await axios.post(
-        "http://localhost:5000/api/salaries/add",
+        `${API_URL}/api/salaries/add`,
         {
           employee: form.employee,
           basicSalary: Number(form.basicSalary),
@@ -99,7 +101,7 @@ function Salaries() {
       setMessage("");
 
       const response = await axios.put(
-        `http://localhost:5000/api/salaries/${id}`,
+        `${API_URL}/api/salaries/${id}`,
         { paymentStatus },
         { headers }
       );
